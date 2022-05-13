@@ -25,7 +25,7 @@ class Runes_detector:
         for i in range(len(contours)):  
             x, y, w, h = cv2.boundingRect(contours[i]) #返回矩形包围框的坐标信息
             aspectRatio = float(w) / h  #宽高比
-            if cv2.contourArea(contours[i]) > 10 and aspectRatio < 1: #利用轮廓面积和宽高比筛选出目标轮廓
+            if 0.6 < cv2.contourArea(contours[i])/(w*h) and 1/2 >= aspectRatio and cv2.contourArea(contours[i]) > 0: #利用轮廓面积、宽高比和轮廓面积与矩形包围框面积之比筛选出目标轮廓
                 #cv2.putText(frame, "Distance " + str(int(35 * 225 / w))+"cm", (100, 200), cv2.FONT_HERSHEY_TRIPLEX, 1,
                 #            (0, 255, 0)) #测定距离
                 x, y, w, h = cv2.boundingRect(contours[i]) #得到目标矩形包围框的坐标信息
