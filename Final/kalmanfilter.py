@@ -1,4 +1,4 @@
-#https://pysource.com/2021/10/29/kalman-filter-predict-the-trajectory-of-an-object/
+
 import cv2
 import numpy as np
 
