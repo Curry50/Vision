@@ -1,11 +1,16 @@
+导入相关模块
 import serial
 
+#定义SerialCommunication类
 class SerialCommunication:
     def dataProcess(self, ser,a,b):
-        a1 = str(hex(a))
+        #进行数据处理，将原始数据转换成16进制字符串，便于与stm32通信
+        a1 = str(hex(a)) 
         b1 = str(hex(b))
         data1 = a1[2:4]
         data2 = b1[2:4]
+        
+        #由于17以下的数字无法转换成stm32可读取的字符串，进行分类讨论并对坐标限幅
         if (a < 17 and b >= 17):
             try:
                 a = 17
