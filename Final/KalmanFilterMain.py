@@ -24,10 +24,10 @@ try:
 except:
     pass
 
-#
+#主循环
 while True:
-    ret, frame = vc.CaptureRead(cap)
-    frame = cv2.resize(frame,None,fx=1/5,fy=16/45)
+    ret, frame = vc.CaptureRead(cap) #读取画面
+    frame = cv2.resize(frame,None,fx=1/5,fy=16/45) #将图像的分辨率缩放至256*256
     if ret is False:
         break
     green_bbox = od.detect(frame)
