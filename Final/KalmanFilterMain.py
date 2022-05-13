@@ -1,3 +1,4 @@
+#导入相关模块
 import serial
 import cv2
 from Runes_detector import Runes_detector
@@ -5,21 +6,25 @@ from kalmanfilter import KalmanFilter
 from SerialCommunication import SerialCommunication
 from VideoCapture import VideoCapture
 
-
+#初始化
 vc = VideoCapture()
 od = Runes_detector()
 sc = SerialCommunication()
 kf = KalmanFilter()
 
+#设置画面相关参数
 cap = vc.Capture(0)
 cap.set(3,1280)
 cap.set(4,720)
 cap.set(15,-20)
+
+#串口初始化
 try:
     ser = serial.Serial("/dev/ttyUSB0",115200,timeout = 0.01)
 except:
     pass
 
+#
 while True:
     ret, frame = vc.CaptureRead(cap)
     frame = cv2.resize(frame,None,fx=1/5,fy=16/45)
