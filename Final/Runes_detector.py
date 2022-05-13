@@ -14,7 +14,7 @@ class Runes_detector:
     def detect(self, frame):
         data = []
         hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) #从BGR颜色空间转换到HSV颜色空间
-        k = np.ones((9,9),np.uint8) #定义卷积核
+        k = np.ones((5,5),np.uint8) #定义卷积核
         mask = cv2.inRange(hsv_img, self.low_blue, self.high_blue) #二值化
         mask = cv2.erode(mask,k) #腐蚀操作
         mask = cv2.dilate(mask,k) #膨胀操作
