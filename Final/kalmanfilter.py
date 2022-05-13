@@ -1,4 +1,4 @@
-
+#卡尔曼滤波详细信息在“视觉原理说明”中进行了介绍
 import cv2
 import numpy as np
 
